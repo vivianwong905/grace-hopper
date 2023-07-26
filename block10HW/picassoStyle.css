@@ -1,0 +1,64 @@
+
+@media screen and (max-width: 800px) {
+    body{
+        background-color: black;
+    }
+}
+/* forms css */
+.picassoForm{
+    padding: 1em;
+    background-color: antiquewhite;
+    border: 2px solid;
+}
+
+#name{
+    border-color: aqua;
+    border-radius: 20%;
+}
+
+/* main page css */
+section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container {
+    position: relative;
+    background-color: lightblue;
+    padding: 10px 10px;
+}
+.box1{
+    position: absolute;
+  z-index: 1;
+  border: dashed;
+  height: 8em;
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+
+.box2{
+      position: absolute;
+      border: solid antiquewhite;
+  z-index: 2; 
+  background: green;
+  width: 80%;
+  left: 60px;
+}
+
+.box3{
+      position: absolute;
+  z-index: 3; 
+  background: lightgreen;
+  width: 20%;
+  left: 65%;
+  height: 7em;
+}
+
+.box4{
+    position: absolute;
+    z-index: 0;
+    background: yellow;
+    width: 90%;
+    height: 100%;
+    padding: 50px;
+}
