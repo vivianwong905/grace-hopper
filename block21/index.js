@@ -1,88 +1,30 @@
-// PART 1: Object Prototypes
-// ===============================================================
-
-// Create an object called animal (POJO = Plain Old JavaScript Object)
-const animal = {
-  // name: "Spot", <-- how we add properties
-
-  // with a method called eat
-  eat: function () {
-    // that console logs 'nom nom nom'
-    console.log("nom nom nom");
-  },
-};
-
-animal.eat();
-
-// create an object called dog
-const dog = {
-  // with a method called woof
-  woof: function () {
-    // that console logs "Woof!"
-    console.log("Woof!");
-  },
-};
-
-dog.woof();
-
-// Directly set the internal prototype of dog to animal
-dog.__proto__ = animal;
-
-// Set internal prototype with Object.setPrototypeOf
-// same effect as directly setting __proto__
-// Object.setPrototypeOf(dog, animal);
-
-// Call the eat method stored on dog
-dog.eat();
-
-// PART 2: Classes
-// ===============================================================
-
-class Pet {
-  constructor(name, age) {
-    // this = instance of Pet
-    this.name = name;
-    this.age = age;
+// Write code that defines a constructor function called Car that creates a new object with the following properties: make, model, and year.
+class Car {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
   }
-
-  eat() {
-    return "nom nom nom";
-  }
-
-  birthday() {
-    return `${this.name} is ${this.age} years old.`;
+  // Add a method called getDescription to the Car prototype, which returns a string containing information about the car.
+  getDescription() {
+    return `here are some car info: ${this.make}, ${this.model}, ${this.year},`;
   }
 }
 
-class Dog extends Pet {
-  constructor(name, age, breed) {
-    super(name, age);
-    // no need to directly assign these here
-    // super will handle it
-    // when it calls the Pet constructor
-    // this.name = name;
-    // this.age = age;
-    this.breed = breed;
+// Define the ElectricCar function as a subclass of Car. Include an additional property called range that represents the range of the electric car in miles.
+class ElectricCar extends Car {
+  constructor(make, model, year, range) {
+    super(make, model, year);
+    this.range = range;
   }
-
-  bark() {
-    return `${this.name} is barking!`;
+  // Have the ElectricCar prototype override the getDescription method of the Car prototype with a new implementation that includes information about the range of the electric car.
+  getDescription() {
+    return `${super.getDescription()} and this is the ${this.range} range`;
   }
 }
 
-class Cat extends Pet {
-  constructor(name, age, furColor) {
-    super(name, age);
-    this.furColor = furColor;
-  }
+// Create an instance of ElectricCar with the make "Tesla", model "Model S", year 2019, and range 300, and the getDescription method is called on the instance. 
+// The output will be a string containing the make, model, year, and range of the electric car.
 
-  meow() {
-    return `${this.name} is meowing!`;
-  }
-}
-
-module.exports = {
-  Pet,
-  Dog,
-  Cat,
-};
+const electricCar = new ElectricCar("Tesla", "Model S", 2019, 300 );
+console.log(electricCar.getDescription());

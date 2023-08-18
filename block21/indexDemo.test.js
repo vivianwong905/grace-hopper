@@ -1,4 +1,4 @@
-const { Pet, Dog, Cat } = require("./index");
+const { Pet, Dog, Cat } = require("./indexDemo");
 
 describe("Pet", () => {
   it("creates a new Pet object", () => {
