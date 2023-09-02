@@ -96,6 +96,7 @@ const renderAllRecipes = (recipeList) => {
 
     // render the title in a heading
     const recipeHeading = document.createElement("h3");
+    // easy to see if the recipe title is rendering on the webpage using textContent
     recipeHeading.textContent = recipe.title;
 
     // render the image
