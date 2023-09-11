@@ -59,3 +59,16 @@ const third = "fullstackacademy"
 const forth = "com"
 const fifth = "/weather"
 
+function makeCurry (a) {
+  return function (b) {
+    return function (c) {
+      return function (d) {
+        return function (e) {
+          return a+b+c+d+e
+        }
+      }
+    }
+  }
+}
+
+console.log (makeCurry(first)(second)(third)(forth)(fifth));
