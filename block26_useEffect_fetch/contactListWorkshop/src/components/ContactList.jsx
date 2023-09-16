@@ -1,34 +1,29 @@
 import { useState, useEffect } from 'react'
 import ContactRow from './ContactRow'
 
-const dummyContacts = [
-  { id: 1, name: "R2-D2", phone: "222-222-2222", email: "r2d2@droids.com" },
-  { id: 2, name: "C-3PO", phone: "333-333-3333", email: "c3po@droids.com" },
-  { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
-];
 
-export default function ContactList() {
-    const [contacts, setContacts] = useState(dummyContacts);
+export default function ContactList({ setSelectedContactId }) {
+  const [contacts, setContacts] = useState([]); // replaced "" with []
+  // () for the useState is the initial data - it was breaking bc i was trying to map over ""
 
-    console.log("Contacts: ", contacts);
-    // console.log("Contacts email: ", dummyContacts.email);
-    // console.log("Contacts name: ", contacts.name);
-    useEffect(() => {
-        async function fetchContacts() {
-          try {
-            const response = await fetch(
-              "https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users"
-            );
-            const data = await response.json();
-            console.log(data, "data");
-            setContacts(data);
-          } catch (e) {
-            console.error(e);
-          }
-        }
-        fetchContacts();
-    }, [])
-
+  console.log("Contacts from line 6 ", contacts);
+  // console.log("Contacts email: ", dummyContacts.email);
+  // console.log("Contacts name: ", contacts.name);
+  useEffect(() => {
+    async function fetchContacts() {
+      try {
+        const response = await fetch(
+          "https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users"
+        );
+        const data = await response.json();
+        console.log(data, "data from line 18");
+        setContacts(data); // replacing the contacts held in state,it is overwriting the value of contacts line 11
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    fetchContacts();
+  }, []);
 
   return (
     <table>
@@ -43,11 +38,18 @@ export default function ContactList() {
           <td>Email</td>
           <td>Phone</td>
         </tr>
-        {
-        contacts.map((contact) => {
-            return <ContactRow key={contact.id} contact={contact} />;
-        })
-        }
+        {contacts.map((contact) => {
+          return (
+            <ContactRow
+              key={contact.id}
+              name={contact.name}
+              email={contact.email}
+              phone={contact.phone}
+              id={contact.id}
+              setSelectedContactId={setSelectedContactId}
+            />
+          );
+        })}
       </tbody>
     </table>
   );
