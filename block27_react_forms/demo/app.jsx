@@ -5,7 +5,7 @@ import UncontrolledForm from "./components/UncontrolledForm";
 import ControlledForm from "./components/ControlledForm";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(null); // bc you need to use the token for your entire app
 
   useEffect(() => {
     console.log("New token: ", token);

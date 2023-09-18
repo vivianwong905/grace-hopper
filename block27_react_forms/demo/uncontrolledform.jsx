@@ -11,6 +11,8 @@ const UncontrolledForm = () => {
     fetch("/some-api", { method: form.method, body: formData });
 
     // we can access the plain object version:
+    //only visible to extra the data using object.formEntries - that's why
+    //you can't just console log formData
     const formObj = Object.fromEntries(formData.entries());
     console.log(formObj);
   }
@@ -39,3 +41,7 @@ const UncontrolledForm = () => {
 };
 
 export default UncontrolledForm;
+
+// not great compared to controlled from bc you can't see the data easily
+//you cant see the data until you hit submit ex) you can't be like, can't submit btn if the username is too long
+// bc you won't know when the username is too long until you hit submit
