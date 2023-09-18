@@ -4,28 +4,17 @@ import Authenticate from './components/Authenticate'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [token, setToken] = useState(null);
 
   return (
     <>
       <div>
-        <SignUpForm />
-        <Authenticate />
+        <SignUpForm token={token} setToken={setToken} />
+        <Authenticate token={token} setToken={setToken} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h3>block 27 workshop</h3>
     </>
-  )
+  );
 }
 
 export default App
