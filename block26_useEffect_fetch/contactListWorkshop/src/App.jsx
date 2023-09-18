@@ -15,11 +15,11 @@ function App() {
     <>
       {selectedContactId ? (
         <SingleContact
-          selectedContactId={selectedContactId}
-          setSelectedContactId={setSelectedContactId}
-        /> // i don't fully understand selectedContactId={selectedContactId} setSelectedContactId={setSelectedContactId}
+          selectedContactId={selectedContactId} // passing it down to another child to contact row - see line 13
+          setSelectedContactId={setSelectedContactId} 
+        /> // i am passing this as a prop for SingleContact and ContactList so they can use it, to be able to render
       ) : (
-        <ContactList setSelectedContactId={setSelectedContactId} />
+        <ContactList setSelectedContactId={setSelectedContactId} /> // 
       )}
     </>
   );

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 
 
-export default function SingleContact({ selectedContactId, setSelectedContactId }) {
-  const [contact, setContact] = useState([]); // replaced "" with []
+export default function SingleContact({ selectedContactId, setSelectedContactId }) { // why both props
+  const [contact, setContact] = useState([]); // replaced null with []
   // () for the useState is the initial data - it was breaking bc i was trying to map over ""
+  // contact - is just a state, a value, setContact is a function to set something 
 
   useEffect(() => {
     async function fetchSingleContact() {

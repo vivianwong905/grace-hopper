@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import ContactRow from './ContactRow'
 
 
-export default function ContactList({ setSelectedContactId }) {
+export default function ContactList({ setSelectedContactId }) { // another way you can access it's is call props.setSelectedContactId
+  // this is call destructuring inside the {}
   const [contacts, setContacts] = useState([]); // replaced "" with []
   // () for the useState is the initial data - it was breaking bc i was trying to map over ""
 
@@ -41,12 +42,12 @@ export default function ContactList({ setSelectedContactId }) {
         {contacts.map((contact) => {
           return (
             <ContactRow
-              key={contact.id}
+              key={contact.id} // we always need a key to map - unique ID 
               name={contact.name}
               email={contact.email}
               phone={contact.phone}
               id={contact.id}
-              setSelectedContactId={setSelectedContactId}
+              setSelectedContactId={setSelectedContactId} // why we need this here, this is using as prop, it helps to transfer parent's data? 
             />
           );
         })}
