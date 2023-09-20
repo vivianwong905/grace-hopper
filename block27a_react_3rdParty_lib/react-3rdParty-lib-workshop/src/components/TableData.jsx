@@ -4,16 +4,12 @@ import { useState, useEffect } from "react";
 
 export default function TableData() {
   const [results, setResults] = useState(mockBarData);
-  console.log(results, "data");
-  console.log(results.id, "id");
-  console.log(results.country, "country");
- {JSON.stringify(results)}
-  console.log(results, "after string");
   return (
     <>
       <h3>Food results</h3>
       {results.map((result) => (
-        <div>
+        // key needs to be on the parent component(div) - that's why it is throwing error, see line 12 
+        <div key={result.country}>
           <tr>
             <td>country = {result.country}</td>
             <td>burger = {result.burger}</td>
@@ -25,7 +21,9 @@ export default function TableData() {
   );
 }
 
-//const TableRow = (burger, country, kebab, id) => {
+//const TableRow = (burger, country, kebab, id) => { 
+    // this was throwing an error bc i didn't destructure the pros, it is reading as arguement - need to do {}
+    // or i will have to do: burger.country, burger.kebab...etc
 //   return (
 //     <tr>
 //       <td>{country}</td>

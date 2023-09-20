@@ -1,7 +1,8 @@
 import './App.css'
 import BasicTable from './components/TableData1'
 import StickyTable from './components/StickyTable'
-import Drawer from '@mui/material/Drawer/Drawer'
+import DrawerLeft from "./components/Drawer";
+import PersistentDrawerLeft from './components/Drawer1';
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -19,12 +20,30 @@ const Item = styled(Paper)(({ theme }) => ({
   function App() {
     return (
       <>
-        <div>
-          <Drawer />
-        </div>
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={3}>
-            <Grid item xs={10}>
+          <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            alignItems="baseline"
+          >
+            <Grid item xs={2}>
+              <Item>
+                {/* <DrawerLeft /> */}
+                <PersistentDrawerLeft />
+              </Item>
+            </Grid>
+          </Grid>
+        </Box>
+        <br></br>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item xs={7}>
               <Item>
                 <BasicTable />
               </Item>
