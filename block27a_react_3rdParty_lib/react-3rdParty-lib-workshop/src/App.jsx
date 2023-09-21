@@ -1,7 +1,6 @@
 import './App.css'
 import BasicTable from './components/TableData1'
 import StickyTable from './components/StickyTable'
-import DrawerLeft from "./components/Drawer";
 import PersistentDrawerLeft from './components/Drawer1';
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -29,7 +28,6 @@ const Item = styled(Paper)(({ theme }) => ({
           >
             <Grid item xs={2}>
               <Item>
-                {/* <DrawerLeft /> */}
                 <PersistentDrawerLeft />
               </Item>
             </Grid>
