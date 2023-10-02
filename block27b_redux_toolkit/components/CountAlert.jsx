@@ -3,8 +3,9 @@ import { useSelector } from "react-redux";
 
 const CountAlert = () => {
   // STEP 5: Load the count from the store
-  const count = useSelector((state) => state.count);
-
+  const count = useSelector((state) => state.count); // useSelector is a hook, this is how CountAlert have
+  //access to count
+  // you can always console log the state above
   const alertStyle = { marginTop: 8 };
   if (count > 10) {
     return (

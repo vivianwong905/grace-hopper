@@ -77,6 +77,25 @@ num2 = 0;
 sum = num1 + num2;
 sum < 0 ? console.log("-5 is a negative number") : console.log(false);
 
+//or 
+// Inputs will vary between the following:
+// [[50, 51], [99, -2], [0, 101], [500, -500], [-1000, 0], [-5, 0]]
+
+let num3 = 50;
+let num4 = 51;
+let sum1 = num3 + num4;
+
+if (sum1 < -1000) {
+    console.log(sum1 + " is less than -1000")
+} else if (sum1 < 0) {
+    console.log(sum1 + " is a negative number")
+} else if (sum1 === 0) {
+    console.log(sum1 + " is equal to 0")
+} else if (sum1 > 0 && sum1 < 100) {
+    console.log(sum1 + " is greater than 0")
+} else if (sum1 > 100) {
+    console.log(sum1 + " is greater than 100")
+};
 
 //Greater than 5
 //create 2 num varibles

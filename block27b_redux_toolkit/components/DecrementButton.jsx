@@ -8,7 +8,7 @@ import Remove from "@mui/icons-material/Remove";
 // props = {count: 0, setCount: stateUpdateFunction}
 export default function DecrementButton() {
   // STEP 6. Get the dispatch function from React Redux
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // if we call a redux action, you must dispatch it
 
   return (
     <Button

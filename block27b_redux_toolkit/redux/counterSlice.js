@@ -4,12 +4,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // createSlice takes an object as argument with name, initialState and reducers
 // createSlice returns an object {actions: [...], reducer: {...}}
+// the state is held in the slice
 const counterSlice = createSlice({
   name: "count",
-  initialState: 0,
-  reducers: {
+  initialState: 0, // or defaultValue
+  reducers: { //actions, these are the actions you can take
     // Reducer function to increment the counter
-    increment: (state) => state + 1,
+    increment: (state) => state + 1, //increment: (state, action) => {}
 
     // Reducer function to decrement the counter
     decrement: (state) => state - 1,

@@ -1,4 +1,5 @@
 // STEP 1: CONFIGURE A STORE
+//the store holds all the reducers 
 
 import { configureStore } from "@reduxjs/toolkit";
 

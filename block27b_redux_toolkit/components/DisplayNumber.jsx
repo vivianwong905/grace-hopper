@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 // access it from Redux Store instead
 const DisplayNumber = () => {
   // STEP 5: Load the count from the store
-  const count = useSelector((state) => state.count);
+  const count = useSelector((state) => state.count); // get the count from the store useSelector
 
   return <Typography>{count}</Typography>;
 };
