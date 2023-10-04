@@ -1,19 +1,20 @@
-import { useState } from 'react'
-import { Routes, Route, Link } from "react-router-dom";
-import './App.css'
-import "./index.css";
+import { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import './index.css';
 import RedColor from './Red';
 import BlueColor from './Blue';
 import Home from './Home';
 
 function App() {
-
   return (
     <>
       <div id="container">
         <div id="navbar">
           <Link to="/blue">blue</Link>
+          <br />
           <Link to="/red">red</Link>
+          <br />
           <Link to="/">home</Link>
         </div>
         <div id="main-section">
@@ -28,4 +29,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
