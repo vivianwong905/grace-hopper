@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data API</title>
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+</head>
+
+<body>
+    <h1>Student Data API- please note that this should be in the public folder</h1>
+    Hello world! I am an HTML file!
+    <img src="/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg" width="300" />
+    <button>Load Student Data</button>
+    <ul></ul>
+
+    <script>
+        const button = document.querySelector('button');
+
+        const ul = document.querySelector('ul');
+
+        button.addEventListener('click', () => {
+            fetch('http://localhost:8080/api/v1/students')
+                .then(res => res.json())
+                .then(students => {
+                    students.forEach((student) => {
+                        const li = document.createElement('li');
+                        li.textContent = student.name;
+                        ul.appendChild(li);
+                    });
+                })
+        })
+    </script>
+</body>
+
+</html>
